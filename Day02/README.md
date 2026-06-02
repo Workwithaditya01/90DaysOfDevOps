@@ -36,6 +36,7 @@ A Process is running instance of a program
 ## 5 Linux Commands I Would Use Daily
 
 | Commands | Application |
+|----------|-------------|
 | pwd | pwd command is used to check "Present Working Directory". |
 | ls | ls command is used to list all the files and directory in an directory |
 | mkdir | mkdir command is used to create an directory |
