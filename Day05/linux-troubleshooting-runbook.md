@@ -20,6 +20,7 @@ The -a flag means all available information.
 ```text
 Linux ip-172-31-32-178 7.0.0-1004-aws #4-Ubuntu SMP PREEMPT Mon Apr 13 13:14:24 UTC 2026 x86_64 GNU/Linux
 ```
+---
 
 ### 2.Command:
 
@@ -49,6 +50,8 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 UBUNTU_CODENAME=resolute
 LOGO=ubuntu-logo
 ```
+---
+
 ## Filesystem Sanity
 
 ### 3.Command:
@@ -66,6 +69,7 @@ Creates a directory
 Temporary directory created successfully.
 Filesystem is writable.
 ```
+---
 
 ### 4.Command:
 
@@ -83,6 +87,7 @@ Copies a file.
 total 4
 -rw-r--r-- 1 ubuntu ubuntu 221 Jun  3 04:03 hosts-copy
 ```
+---
 
 ## CPU $ Memory
 
@@ -127,6 +132,7 @@ Jun 03 04:00:39 ip-172-31-32-178 sshd-session[1410]: Disconnected from authentic
 Jun 03 04:00:47 ip-172-31-32-178 sshd-session[1483]: Connection closed by 68.183.87.42 port 44158 [preauth]
 lines 1-26/26 (END)
 ```
+---
 
 ### 6.Command:
 
@@ -144,6 +150,7 @@ Displays RAM usage.
                total        used        free      shared  buff/cache   available
 Mem:           908Mi       307Mi       386Mi       2.7Mi       324Mi       601Mi
 ```
+---
 
 ## Disk & IO
 
@@ -175,6 +182,7 @@ none             1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
 none             1.0M     0  1.0M   0% /run/credentials/serial-getty@ttyS0.service
 tmpfs             91M  8.0K   91M   1% /run/user/1000
 ```
+---
 
 ### 8.Command:
 
@@ -206,6 +214,7 @@ du: cannot read directory '/var/log/chrony': Permission denied
 du: cannot read directory '/var/log/private': Permission denied
 17M     /var/log
 ```
+---
 
 ## Network
 
@@ -233,6 +242,7 @@ tcp            LISTEN          0               4096                          127
 tcp            LISTEN          0               4096                                0.0.0.0:22                          0.0.0.0:*
 tcp            LISTEN          0               4096                                   [::]:22                             [::]:*
 ```
+---
 
 ### 10.Command:
 
@@ -260,6 +270,7 @@ x-xss-protection: 0
 x-frame-options: SAMEORIGIN
 alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
 ```
+---
 
 ## Logs
 
@@ -298,6 +309,7 @@ Jun 03 04:00:39 ip-172-31-32-178 sshd-session[1410]: Received disconnect from 87
 Jun 03 04:00:39 ip-172-31-32-178 sshd-session[1410]: Disconnected from authenticating user root 87.121.69.138 port 27986 [preauth]
 Jun 03 04:00:47 ip-172-31-32-178 sshd-session[1483]: Connection closed by 68.183.87.42 port 44158 [preauth]
 ```
+---
 
 ### 12.Command
 
@@ -318,6 +330,7 @@ Shows last 5 lines of a file.
 2026-06-03T04:10:06.825290+00:00 ip-172-31-32-178 systemd[1]: Finished sysstat-collect.service - system activity accounting tool.
 2026-06-03T04:17:01.695995+00:00 ip-172-31-32-178 CRON[1785]: (root) CMD (cd / && run-parts --report /etc/cron.hourly)
 ```
+---
 
 ## The Actual DevOps Troubleshooting Flow . When a service fails, most DevOps engineers follow this sequence:
 
@@ -350,6 +363,7 @@ Shows last 5 lines of a file.
 - What do the logs say?
 ```
 
+---
 
 
 
