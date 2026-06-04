@@ -173,7 +173,7 @@ The command used for copying files securely.
 ```
 
 ```text
--i your-key.pem
+Specifies the SSH private key to authenticate with the EC2 instance.Without the correct key, AWS won't allow access to the server.
 ```
 
 ```bash
