@@ -173,7 +173,8 @@ The command used for copying files securely.
 ```
 
 ```text
-Specifies the SSH private key to authenticate with the EC2 instance.Without the correct key, AWS won't allow access to the server.
+Specifies the SSH private key to authenticate with the EC2 instance.
+Without the correct key, AWS won't allow access to the server.
 ```
 
 ```bash
@@ -235,5 +236,7 @@ tcp   LISTEN 0      511                 [::]:80           [::]:*    users:(("ngi
 # Key Takeaway
 
 ```text
-Deploying Nginx on AWS EC2 provided hands-on experience with real-world DevOps tasks including cloud provisioning, remote server management, network security, service monitoring, troubleshooting, and log management. These are core skills used daily by DevOps and Cloud Engineers in production environments.
+Deploying Nginx on AWS EC2 provided hands-on experience with real-world DevOps tasks including cloud provisioning, remote server
+management, network security, service monitoring, troubleshooting, and log management. These are core skills used daily by DevOps
+`and Cloud Engineers in production environments.
 ```
