@@ -40,7 +40,7 @@ df-h - Display mounted file system and disk usage.
 ```
 
 ### Screenshot
-![Command image][https://github.com/Workwithaditya01/90DaysOfDevOps/blob/1c768dfa4920834bb645edb69f3cfb38628654ec/images/13%20task%201.png]
+![Command image](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/1c768dfa4920834bb645edb69f3cfb38628654ec/images/13%20task%201.png)
 
 ---
 
@@ -64,7 +64,7 @@ lsblk
 ```
 
 ### Screenshot
-![Physical Volume][https://github.com/Workwithaditya01/90DaysOfDevOps/blob/1c768dfa4920834bb645edb69f3cfb38628654ec/images/13%20task%2012.png]
+![Physical Volume](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/1c768dfa4920834bb645edb69f3cfb38628654ec/images/13%20task%2012.png)
 
 ---
 
@@ -88,7 +88,7 @@ lsblk
 ```
 
 ### Screenshot:
-![Volume Group][https://github.com/Workwithaditya01/90DaysOfDevOps/blob/1c768dfa4920834bb645edb69f3cfb38628654ec/images/13%20task%2012.png]
+![Volume Group](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/1c768dfa4920834bb645edb69f3cfb38628654ec/images/13%20task%2012.png)
 
 ---
 
@@ -163,7 +163,7 @@ df -h
 
 ### Screenshot:
 
-![Extend][https://github.com/Workwithaditya01/90DaysOfDevOps/blob/1c768dfa4920834bb645edb69f3cfb38628654ec/images/13%20task%205.png]
+![Extend](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/1c768dfa4920834bb645edb69f3cfb38628654ec/images/13%20task%205.png)
 
 ---
 
