@@ -175,7 +175,7 @@ main
 
 ### Expected Output:
 
-![](images/Day 18/system_info out.png)
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/014b0e94a17c8a4fb6fc080d8cd8fe205da54856/images/Day%2018/system_info%20out.png)
 
 ---
 
