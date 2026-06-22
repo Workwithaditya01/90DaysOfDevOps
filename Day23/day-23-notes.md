@@ -174,5 +174,60 @@ git pull origin main
 | Safe inspection | Direct update |
 | No automatic merge | Automatic merge |
 
+---
 
+## Task 5: Clone vs Fork
 
+### Clone a Repository
+```command
+git clone https://github.com/TrainWithShubham/python-for-devops
+```
+
+### Fork a Repository
+
+- 1. Open the Repository on GitHub.
+- 2. Click fork.
+- 3. GitHub creates a copy under your account.
+- 4. clone your fork
+
+### Difference between clone and fork
+
+#### Clone
+- creates a local copy of a repository on your machine.
+
+#### fork 
+- creates a copy of a repository on github under your account
+
+### When you would clone and fork
+
+#### Clone
+- Working on your own repositories
+- You already have write access
+#### Fork
+- Contributing to open-source projects
+- You do not have write access
+
+### Keeping a Fork Updated
+
+#### Add upstream remote
+```command
+$ git remote add upstream https://github.com/TrainWithShubham/python-for-devops
+```
+
+#### fetch latest changes
+```command
+git fetch upstream
+```
+
+---
+
+## Key Takeaways
+- Branches allow isolated development.
+- HEAD points to the current commit.
+- git switch is the modern branch-switching command.
+- origin refers to your remote repository.
+- upstream refers to the original repository.
+- git fetch downloads changes only.
+- git pull downloads and merges changes.
+- Clone creates a local copy.
+- Fork creates a GitHub copy under your account
