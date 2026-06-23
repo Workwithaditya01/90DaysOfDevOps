@@ -227,4 +227,43 @@ git merge feature-settings
 
 ---
 
+## Task 5: Cherry Pick
 
+### Commands used
+
+```commands
+git checkout -b feature-hotflix
+```
+
+```commands
+git commit -m "Hotfix 1"
+git commit -m "Hotfix 2" 
+git commit -m "Hotfix 3"
+```
+
+```commmands
+git log --oneline
+git checkout main 
+git cherry-pick f7a1b7c
+```
+
+#### Observation
+- Only the selected commit was copied to main.
+
+### Answers
+
+#### 1.What does cherry-pick do ?
+- cherry-pick applies a specific commit from one branch to another
+
+#### 2.when would you use cherry-pick in a real-project ?
+- When a bug fix or feature needs to be copied without merging the entire branch.
+
+#### 3.What can go wrong with cherry-picking?
+- Merge conflicts may occur.
+- Duplicate commits can be created.
+- History can become difficult to track.
+
+---
+
+### Key learning 
+- Today I learned how branches are integrated using Merge and Rebase, how to temporarily save work using Stash, how to combine commits using Squash Merge, and how to selectively copy commits using Cherry Pick. These are essential Git skills used in professional software development workflows.
