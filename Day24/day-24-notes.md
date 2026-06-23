@@ -96,4 +96,45 @@ git add .
 git commit -m "Connected dashboard API"
 ```
 
+```command
+git checkout main
+```
+
+```command
+echo "Main Improvement" >> app.txt
+git add . 
+git commit -m "Main branch improvement
+```
+
+```command
+git checkout feature-dashboard
+git rebase main
+```
+
+#### Observation:
+-   The branch commits were replayed on top of the latest main commit.
+
+```command
+git log --oneline --graph --all
+```
+
+- The history appeared linear and cleaner compared to merge.
+
+### Answers:
+
+#### 1.What does rebase actually do to your commits ?
+- Rebase moves or replays commits from one branch onto another base commit.
+
+#### 2.How is the history different from a merge ?
+- rebase creates a clean linear history, while merge preserve branch history with merge commit.
+
+#### 3.Why should you never rebase commits that have been pushed and shared with others?
+- Rebasing changes commit hashes and rewrites history, which can cause conflicts for collaborators.
+
+#### 4.When would you use rebase vs merge?
+- Use Rebase to maintain a clean linear history before merging.
+- Use Merge when you want to preserve branch history.
+
+---
+
 
