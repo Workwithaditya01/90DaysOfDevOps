@@ -266,4 +266,4 @@ git cherry-pick f7a1b7c
 ---
 
 ### Key learning 
-- Today I learned how branches are integrated using Merge and Rebase, how to temporarily save work using Stash, how to combine commits using Squash Merge, and how to selectively copy commits using Cherry Pick. These are essential Git skills used in professional software development workflows.
+- Today I learned how branches are integrated using Merge and Rebase, how to temporarily save work using Stash, how to combine commits using Squash Merge, and how to selectively copy commits using Cherry Pick. These are essential Git skills used in professional software development workflows....
