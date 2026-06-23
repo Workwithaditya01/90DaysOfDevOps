@@ -137,4 +137,49 @@ git log --oneline --graph --all
 
 ---
 
+## Task 3: Squash Merge vs Merge Commit
+
+### Squash merge
+
+```command
+git checkout -b feature-profile
+```
+
+```command
+git commit -m "Profile UI"
+git commit -m "Fixed typo"
+git commit -m "Updated styling" 
+git commit -m "Added validation"
+```
+
+```command
+git checkout main
+git merge --squash feature-profile
+git commit -m "Added profile feature"
+```
+
+#### Observation
+- Only one commit was added to main.
+
+### Regular merge
+
+```command
+git checkout -b feature-settings
+```
+
+```command
+git commit -m "Settings UI"
+git commit -m "Added preferences" 
+git commit -m "Added notifications"
+```
+
+```command
+git checkout main
+git merge feature-settings
+```
+
+#### Observation
+- All commits from the branch appeared in history.
+
+---
 
