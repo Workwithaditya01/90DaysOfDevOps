@@ -181,5 +181,50 @@ git merge feature-settings
 #### Observation
 - All commits from the branch appeared in history.
 
+
+### Answer:
+
+#### 1.What does squash merging do ??
+- Squash merge combine multiple commits into one commit before merging.
+
+#### 2.when will you use squash merge vs regular merge ??
+- Squash merge: when branch contains multiple small commits
+- regular merge: when commit history need to be preserved
+
+#### 3.what is trade-off of squashing ?
+- you get clear history but lose detailed commit information.
+
 ---
+
+## Task 4: Git Stash
+
+### Commands used:
+
+```command
+- echo "Work in progress" >> app.txt
+
+- git stash
+
+- git stash push -m "WIP Changes"
+
+- git stash list
+
+- git stash pop
+
+- git stash apply stash@{0}
+```
+#### Observation:
+- Changes were temporarily stored and later restored.
+
+### Answer:
+
+#### 1. What is different between git stash pop and git stash apply ?
+- git stash pop restores  changes and removes the stash
+- git stash apply restores changes but keeps the stash
+
+#### 2. When would you use stash in real-world workflow ??
+- when switching tasks, fixing urgent bugs, or changing branches without commiting incomplete work.
+
+---
+
 
