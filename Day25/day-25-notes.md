@@ -123,5 +123,107 @@ git reset --hard HEAD~1
 
 ----
 
+## Task 2: Git revert - Hands on
+
+### Initial Commits:
+```commits
+Z
+X
+Y
+```
+
+#### Revert Commit Y
+```command
+git revert <commit id of Y>
+```
+#### Git creates a new Commit
+
+Revert "Y"
+
+#### New History
+
+```history
+Revert Y
+Z
+X 
+Y
+```
+
+### Observation
+
+#### Is Commit Y still in History ?
+- yes 
+- commit y remains in history
+- git adds a new commit that reverses Y's Channges.
+
+### Answers
+
+#### How is git revert different from git reset?
+- git reset
+- moves branch pointer backwards
+- can remove commits from history 
+
+- git revert
+- creates a new commit
+- preserves existing history.
+
+#### Why is Revert safer for shared branches?
+- History is not rewritten
+- exisiting commits remain unchanged
+- team members don't face force -puch issues.
+
+#### when would you use revert and reset?
+
+##### using revert
+- shared branches
+- production code
+- public repository
+
+#### Using reset
+- local commits
+- cleaning commit history
+- before pushing
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
