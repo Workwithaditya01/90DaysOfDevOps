@@ -415,8 +415,16 @@ git revert <commit-id>
 
 ---
 
+## Key Takeaways
 
+- Use reset for local history cleanup.
+- Use revert for undoing pushed commits.
+- Avoid git reset --hard unless absolutely necessary.
+- GitHub Flow is ideal for startups.
+- GitFlow works best for large teams with scheduled releases.
+- Trunk-Based Development enables rapid continuous delivery.
 
+---
 
 
 
