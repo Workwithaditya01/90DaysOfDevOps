@@ -186,10 +186,153 @@ Y
 
 ---
 
+## Task 3: Reset vs Revert Summary
 
+| Feature | git reset | git revert |
+|---------|-----------|------------|
+| What it does | Moves HEAD backward | creates inverse commit |
+| Removes commit from history | Yes | No |
+| Safe for shared branches | No | Yes |
+| rewrites history | Yes | No |
+| Requires force push | yes | No |
+| When to use | Local cleanup | Undo Pushed Commits |
 
+---
 
+## Task 4: Branching Strategies
 
+### 1. GitFlow
+
+#### How it works
+
+##### Uses multiple long-lived Branches
+
+- main
+- develop
+- feature
+- release
+- hotflix
+
+#### Flow
+
+```flow
+feature
+   |
+develop
+   |
+release
+   |
+  main
+  ^
+  hotflix
+```
+
+#### Used By
+
+- Enterprise projects
+- large release cycles
+
+#### Pros
+
+- Structured workflow
+- easy release management
+- Support parellel development
+
+#### Cons
+
+- Complex
+- many branches
+- slower release
+
+### 2. GitHub Flow
+
+#### How it works
+- Single main branch with feature branches.
+
+#### Flow
+```flow
+main 
+   |
+feature-1
+   | 
+Pull Request 
+   | 
+Merge to main
+```
+
+#### Used by
+
+- SaaS products
+- Startups
+- Open source projects
+
+#### Pros
+
+- simple
+- fast deployment
+- easy collaboration
+
+#### Cons
+
+- requires strong testing
+- less release control
+
+### 3. Trunk-based Development
+
+#### How it works
+- Developers integrate frequently into main branch
+
+#### Flow
+```flow
+main
+  |\
+  | feature
+  |
+  merge Quickly
+  |
+main
+```
+
+#### Used by
+
+- Google 
+- Meta
+- High-performing DevOps Teams
+
+#### Pros-
+
+- Continuous Integration
+- Fast Delivery
+- reduces Merge Conflicts
+
+#### Cons
+
+- requires excellent automation
+- strong testing pipeline needed
+
+### Answers
+
+#### Which Strategy for a Startup Shipping Fast?
+
+- GitHub Flow 
+- Simple
+- Fast releases
+- Minimal overhead
+
+#### Which Strategy for a Large Team with Scheduled Releases?
+
+- GitFlow
+- Better release management
+- Separate release and hotfix branches
+- Supports large teams
+
+#### Which Strategy Does an Open Source Project Use?
+
+- Kubernetes
+- Feature branch
+- Pull Request
+- Code Review
+- Merge into main branch
 
 
 
