@@ -334,8 +334,86 @@ main
 - Code Review
 - Merge into main branch
 
+---
 
+## Task 5: Git Commands Reference (Days 22–25)
 
+### Setup & Config
+
+```commands
+git config --global user.name "Name" 
+git config --global user.email "email@example.com" 
+git config --list 
+git config --global --unset user.email
+```
+
+### Basic Workflow
+
+```commands
+git init
+git status
+git add . 
+git add <file> 
+git commit -m "message"
+git log git log --oneline 
+git diff
+```
+
+### Branching
+
+```commands
+git branch
+git branch <name>
+git switch <branch>
+git switch -c <branch>
+git checkout <branch>
+git merge <branch> 
+git branch -d <branch>
+```
+
+### remote
+
+```command
+git remote -v
+git clone <url>
+git fetch
+git pull
+git push 
+git push -u origin main
+```
+
+### Merging & Rebasing
+
+```command
+git merge feature
+git rebase main
+git rebase --continue 
+git rebase --abort
+```
+
+### Stash & Cherry Pick
+
+```command
+git stash
+git stash list
+git stash apply 
+git stash pop
+
+git cherry-pick <commit-id>
+
+```
+
+### Reset & Revert
+
+```commands
+git reset --soft HEAD~1
+git reset --mixed HEAD~1
+git reset --hard HEAD~1 
+
+git revert <commit-id>
+```
+
+---
 
 
 
