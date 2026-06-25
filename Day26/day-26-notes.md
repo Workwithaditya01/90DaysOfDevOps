@@ -43,4 +43,45 @@ ght auth status
 
 ---
 
+## Task 2: Working With Repository
 
+### Create repository
+
+```repo
+gh repo create test-gh-cli --public --add-readme
+```
+
+### Clone repository
+
+```clone
+gh repo clone Workwithaditya01/90DaysOfDevOps
+```
+
+### View Repository
+
+```view
+gh repo view Workwithaditya01/90DaysOfDevOps
+```
+
+### List repository
+
+```list
+gh repo list
+```
+
+### Open repository in browser
+
+```open
+gh repo view --web
+```
+
+### Delete Repository
+
+```delete
+gh repo delete test-gh-cli
+```
+
+#### Observation
+- Repository lifecycle can be managed completely from terminal without opening GitHub website.
+
+---
