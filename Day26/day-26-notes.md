@@ -15,4 +15,32 @@
 winget install --id GitHub.cli
 ```
 
+#### Verify Installation
+
+```verify
+gh --version
+```
+
+#### Authenticate
+
+```auth
+gh auth login
+```
+
+#### Check Current Account
+
+```status
+gh auth status
+```
+
+#### Observation
+
+- Successfully authenticated GitHub Account and verified active user using
+
+````verify
+ght auth status
+````
+
+---
+
 
