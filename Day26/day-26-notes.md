@@ -118,4 +118,94 @@ gh issue close 1
 
 ---
 
+## Task 4: Pull Request
+
+### create Branch
+
+```create
+git checkout -b update-readme
+```
+
+### make Changes
+
+```changes
+git add .
+git commit -m "Update Readme"
+```
+
+### Push Branch
+
+```push
+git push origin update-readme
+```
+
+### Create Pull Request
+
+```pull
+gh pr create --fill
+```
+
+### List Pull Request
+
+```list
+gh pr list
+```
+
+### View Pull Request
+
+```view
+gh pr view
+```
+
+### Merge Pull Request
+
+```merge
+gh pr merge
+``` 
+
+## Question : What merge method does gh pr merge support ?
+
+### Merge Commit
+```merge
+gh pr merge --commit
+```
+
+### Squash merge
+```squash
+gh pr merge --squash
+```
+
+### Rebase merge
+```merge
+gh pr merge --rebase
+```
+
+## Question : How would you review someone else's PR using ph ?
+
+### View PR:
+```view
+gh pr view 10
+```
+
+### Checkout PR Locally:
+```checkout
+gh pr checkout 10
+```
+
+### Approve
+```approve
+gh pr review 10 --approve
+```
+
+### Request Changes:
+```request
+gh pr review 10 --request-changes
+```
+
+### Commit:
+```commit
+gh pr review 10 --comment
+```
+
+---
 
