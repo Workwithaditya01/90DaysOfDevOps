@@ -85,3 +85,37 @@ gh repo delete test-gh-cli
 - Repository lifecycle can be managed completely from terminal without opening GitHub website.
 
 ---
+
+## Task 3: Issues
+
+### Create Issue
+
+```issue
+gh issue create --title "Test Issue" --body "Created from GitHub CLI" --label bug
+```
+
+### List Open Issues
+
+```list
+gh issue list
+```
+
+### View Specific Issue
+
+```view
+gh issue view 1
+```
+
+```view
+gh issue view 2
+```
+
+### Close Specific issue
+
+```close
+gh issue close 1
+```
+
+---
+
+
