@@ -209,3 +209,25 @@ gh pr review 10 --comment
 
 ---
 
+## Task 5: GitHub Actions & WorkFlows
+
+### List WorkFlow Runs
+```run
+gh run list
+```
+
+### View Workflow logs
+```logs
+gh run view <run-id>
+```
+
+### Question: How could gh run and gh workflows help in CI/CD
+- Monitor pipeline from the terminal
+- fetch workflow logs quickly
+- restart failed builds.
+- integrate workflow status into automation scripts
+- useful for devOps monitoring and deployment automation
+
+---
+
+## 
