@@ -230,4 +230,45 @@ gh run view <run-id>
 
 ---
 
-## 
+## Task 6: UseFul gh tricks
+
+### GitHub API
+```Api
+gh api user
+```
+
+### Create Gist
+```gist
+gh gist create notes.txt
+```
+
+### List Gists
+```list
+gh gist list
+```
+
+### Create Release
+```release
+gh release create v1.0.1
+```
+
+### Create Alias
+```alias
+gh alias set prs "pr list"
+```
+
+### Use:
+```gh
+gh prs
+```
+
+### search repository
+```repo
+gh search repos devops
+```
+
+---
+
+## Key Learning
+
+- GitHub CLI allows repository management, issue tracking, pull request handling, workflow monitoring, and GitHub automation directly from the terminal. It is extremely useful for DevOps engineers because it integrates easily with shell scripts, CI/CD pipelines, and infrastructure automation.
