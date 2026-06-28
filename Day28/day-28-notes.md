@@ -1,4 +1,4 @@
-````md
+
 # 📅 Day 28 – Revision Day (Days 1–27)
 
 > **90 Days of DevOps Challenge**  
