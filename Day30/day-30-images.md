@@ -11,7 +11,7 @@ docker pull alpine
 ```
 
 #### Screenshot
-![]()
+![Pull Images](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/d70e42d9fbfe63634f6d4d0a71ec42dc3ea4db61/images/Day%2030/Day%2030%201.png)
 
 ---
 
@@ -22,7 +22,7 @@ docker images
 ```
 
 #### Screenshot
-![]()
+![All images](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/d70e42d9fbfe63634f6d4d0a71ec42dc3ea4db61/images/Day%2030/day%2030%202.png)
 
 ---
 
@@ -61,7 +61,7 @@ docker image inspect nginx
 - Working directory
 
 #### Screenshot
-![]()
+![inspect nginx](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/d70e42d9fbfe63634f6d4d0a71ec42dc3ea4db61/images/Day%2030/day%2030%202.png)
 
 ### 5. Remove an images
 
@@ -70,7 +70,7 @@ docker rmi ubuntu
 ```
 
 #### Screenshot
-![]()
+![Remove images](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/d70e42d9fbfe63634f6d4d0a71ec42dc3ea4db61/images/Day%2030/day%2030%204.png)
 
 ---
 
