@@ -201,4 +201,73 @@ docker rm lifecycle-demo
 
 ---
 
+## Task 4: Working with Running Containers
+
+### Run nginx in Detached mode
+
+```command
+docker run -d --name -p 8080:80 nginx-demo nginx
+```
+
+#### Screenshot
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/a27a28c34f43b3187b73ff190e4beb5e5128b3ca/images/Day%2030/day%2013-13%202.png)
+
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/a27a28c34f43b3187b73ff190e4beb5e5128b3ca/images/Day%2030/day%2013-14.png)
+
+
+### View logs
+
+```command
+docker logs nginx-demo
+```
+
+#### Screenshot
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/a27a28c34f43b3187b73ff190e4beb5e5128b3ca/images/Day%2030/day%2013-15.png)
+
+### Follow Logs
+
+```command
+docker logs -f nginx-demo
+```
+
+#### Screenshot
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/a27a28c34f43b3187b73ff190e4beb5e5128b3ca/images/Day%2030/day%2013-16.png)
+
+
+### Exectue in Container
+
+```command
+docker exec -it nginx-demo nginx
+```
+
+#### Command
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/a27a28c34f43b3187b73ff190e4beb5e5128b3ca/images/Day%2030/day%2013-17.png)
+
+
+### Run a Single command
+
+```command
+docker exec nginx-demo ls
+```
+
+#### Screenshot:
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/a27a28c34f43b3187b73ff190e4beb5e5128b3ca/images/Day%2030/day%2013-18.png)
+
+### Inspect Container
+
+```command
+docker inspect nginx-demo
+```
+
+#### Find:
+
+- Container ID
+- IP Address
+- Port Bindings
+- Mounts
+- Network Settings
+- Restart Policy
+- Image Used
+
+
 
