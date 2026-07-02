@@ -119,4 +119,86 @@ WORKDIR
 ```
 - These instructions modify image metadata without adding filesystem data.
 
+---
+
+## Task 3: Container lifecycle
+
+### 1.Create Container
+
+```command
+docker create --name lifecycle-demo nginx
+```
+```command
+docker ps -a
+```
+
+#### Screenshot:
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/59d006a2fb2cd8b48211e1b202460f31ecc819cc/images/Day%2030/day%2030-6.png)
+
+### 2.Start Container
+
+```command
+docker start lifecycle-demo
+```
+
+#### Screenshot
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/59d006a2fb2cd8b48211e1b202460f31ecc819cc/images/Day%2030/day%2030-7.png)
+
+### 3. Pause Container
+
+```command
+docker pause lifecycle-demo
+```
+
+#### Screenshot
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/59d006a2fb2cd8b48211e1b202460f31ecc819cc/images/Day%2030/docker%2030-8.png)
+
+### 4. unpause container
+
+```command
+docker unpause lifecycle-demo
+```
+
+#### Screenshot
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/59d006a2fb2cd8b48211e1b202460f31ecc819cc/images/Day%2030/day%2030-9.png)
+
+### 5. Stop Container
+
+```command
+docker stop lifecycle-demo
+```
+
+#### Screenshot
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/59d006a2fb2cd8b48211e1b202460f31ecc819cc/images/Day%2030/day%2030-10.png)
+
+### 6. Restart container
+
+```command
+docker restart lifecycle-demo
+```
+
+#### Screenshot
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/59d006a2fb2cd8b48211e1b202460f31ecc819cc/images/Day%2030/day%2030-11.png)
+
+
+### 7. Kill Container
+
+```command
+docker kill lifecycle-demo
+```
+
+#### Screenshot
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/59d006a2fb2cd8b48211e1b202460f31ecc819cc/images/Day%2030/day%2030-12.png)
+
+### 8. Remove Container
+
+```command
+docker rm lifecycle-demo
+```
+
+#### Screenshot
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/59d006a2fb2cd8b48211e1b202460f31ecc819cc/images/Day%2030/day%2030-13.png)
+
+---
+
 
