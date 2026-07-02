@@ -74,4 +74,49 @@ docker rmi ubuntu
 
 ---
 
+## Task 2: Image Layers
+
+### view Image History
+
+```command
+docker image history nginx
+```
+#### Screenshot
+![image history](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/59eb4d0b88f4adee67d0070a2091b02ed32282ed/images/Day%2030/day%2050%205.png)
+
+#### What are Docker Layers?
+
+- Docker images are built using multiple read-only layers.
+
+- Each instruction inside a Dockerfile creates a new layer.
+
+- Examples:
+```command
+FROM
+RUN
+COPY
+ADD
+ENV
+```
+- When a container starts, Docker adds one writable layer on top of these read-only layers.
+
+#### Why Docker Uses Layers
+- Faster image downloads
+- Layer caching speeds up builds
+- Shared layers reduce disk usage
+- Easy image versioning
+- Efficient image distribution
+ 
+#### Why do some layers show 0B?
+
+- Layers showing 0B usually represent metadata changes such as:
+```command
+ENV
+CMD
+EXPOSE
+LABEL
+WORKDIR
+```
+- These instructions modify image metadata without adding filesystem data.
+
 
