@@ -269,5 +269,82 @@ docker inspect nginx-demo
 - Restart Policy
 - Image Used
 
+---
+
+## Task 5: Cleanup
+
+### Stop all running containers
+
+```command
+docker stop $(docker ps -q)
+```
+
+### Remove all Stopped containers
+
+```command
+docker container prune
+```
+
+#### Or
+
+```command
+docker container prune -a
+```
+
+### Remove Unused Images
+
+```command
+docker image prune
+```
+
+### Check docker Disk Usage
+
+```command
+docker system df
+```
+
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/d1386ac949205d72860aa2e63587b24a60130753/images/Day%2030/30%20last.png)
+
+---
+
+## Key Learnings
+- Docker images are templates used to create containers.
+- Containers are running instances of images.
+- Docker images are built from multiple reusable layers.
+- Layer caching makes image builds faster and more storage-efficient.
+- Containers move through different lifecycle states such as Created, Running, Paused, Exited, and Removed.
+- Docker provides powerful tools like inspect, logs, exec, and history for debugging and management.
+- Regular cleanup helps reclaim disk space and keeps the Docker environment organized.
+
+---
+
+## Commands Practiced:
+docker pull
+docker images
+docker image inspect
+docker image history 
+docker rmi
+
+docker create
+docker start
+docker pause
+docker unpause
+docker stop
+docker restart
+docker kill 
+docker rm
+
+docker ps
+docker ps -a
+docker logs
+docker logs -f
+docker exec
+docker inspect
+docker container prune
+docker image prune
+docker system prune 
+docker system df
+
+---
 
 
