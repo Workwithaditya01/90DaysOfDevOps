@@ -58,7 +58,7 @@ Exit PostgreSQL.
 ```bash
 docker stop postgres-db
 docker rm postgres-db
-[O```
+```
 
 ## Step 5: Create a New Container
 
