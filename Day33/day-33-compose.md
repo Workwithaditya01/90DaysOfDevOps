@@ -68,11 +68,6 @@ Docker Compose version v2.x.x
 ```bash
 docker version
 ```
-
-### Screenshot
-
-> Insert screenshot of Docker Compose version here.
-
 ---
 
 # Task 2 – Your First Compose File
@@ -139,13 +134,6 @@ docker compose down
 
 ---
 
-### Screenshot
-
-- Nginx Welcome Page
-- docker compose ps
-
----
-
 # Task 3 – WordPress + MySQL Multi-Container Setup
 
 ## Step 1 – Create Project Folder
@@ -169,47 +157,46 @@ MYSQL_ROOT_PASSWORD=root123
 ---
 
 ## Step 3 – Create docker-compose.yml
-
-```yaml
+```bash
+# inside this section, you will define every container that docker compose should create.
 services:
 
-  db:
-    image: mysql:8.0
-    container_name: mysql-db
+  db:                                                   # This is the name of the service.
+    image: mysql:8.0                                    # Create a container using the official mysql version image.
+    container_name: mysql_db                            # Normally docker gives random name in this case the user defines the name.
 
-    restart: always
+    restart: always                                     # if this container stops, it will start it again automatically.
 
-    environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    environment:                                        # this section passes environment variable to container.
+      MYSQL_DATABASE: ${MYSQL_DATABASE}                 # Creates a database when MYSQL starts, docker will look inside the .env file.
+      MYSQL_USER: ${MYSQL_USER}                         # Reads MYSQL_USER from .env and creates user of that name.
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}                 # Reads MYSQL_PASSWORD from .env and assign that password to the MYSQL user.
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}       # Sets the password for MYSQL root User.
 
-    volumes:
-      - mysql_data:/var/lib/mysql
+    volumes:                                            # This section mount storage. Containers are temporary if you remove them,everything inside disappears, Volumes Keep your data safe.
+      - mysql_data:/var/lib/mysql                       # /var/lib/mysql is where the data of MYSQL is stored. without this line the data is permanantely deleted if the container is deleted.
 
-  wordpress:
-    image: wordpress:latest
+  wordpress:                                            # This starts another container Names wordpress.
+    image: wordpress:latest                             # Pulls the newest Official Wordpress image.
     container_name: wordpress-app
 
-    restart: always
+    restart: always                                     # If this container stops, it will start is again automatically.
 
-    depends_on:
-      - db
+    depends_on:                                         # This tells docker to start another service(Container) First.
+      - db                                              # Starts First the db service(Container) then another.
 
-    ports:
+    ports:                                              # Maps ports between your computer and port 8081(Computer port) && 80(Container port).
       - "8081:80"
 
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: ${MYSQL_USER}
-      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
-      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+    environment:                                        # Passes Wordpress Configuration.
+      WORDPRESS_DB_HOST: db:3306                        # It tells Wordpress Where to find the MYSQL database. db is service Mapped on Default port 3306. the Wordpress asks Which database server to connect.
+      WORDPRESS_DB_USER: ${MYSQL_USER}                  # Uses the same MYSQL_USER from .env file.
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}          # USes the Same Password Created in .env file.
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}              # Tells Word Press which database to use.
 
-volumes:
-  mysql_data:
+volumes:                                                # This define the Named VOlume that the service uses.
+  mysql_data:                                           # Volume Name.
 ```
-
 ---
 
 ## Step 4 – Start the Stack
@@ -261,14 +248,6 @@ docker compose up -d
 Open WordPress again.
 
 If your website and setup are still present, the named volume has successfully persisted the database.
-
----
-
-### Screenshot
-
-- WordPress installation page
-- WordPress dashboard
-- docker compose ps
 
 ---
 
@@ -360,16 +339,6 @@ docker compose up --build
 
 ---
 
-### Screenshot
-
-Insert screenshots of:
-
-- docker compose logs
-- docker compose stop
-- docker compose down
-
----
-
 # Task 5 – Environment Variables
 
 Docker Compose automatically loads variables from a `.env` file.
@@ -401,16 +370,6 @@ docker compose config
 ```
 
 Docker Compose will display the fully resolved configuration with all environment variables substituted.
-
----
-
-### Screenshot
-
-Insert screenshot of:
-
-```bash
-docker compose config
-```
 
 ---
 
