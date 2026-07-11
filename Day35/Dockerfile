@@ -1,11 +1,16 @@
-FROM node:22
+
+FROM node:22-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --omit=dev && \
+    addgroup -S appgroup && \
+    adduser -S appuser -G appgroup
 
 COPY . .
 
-CMD ["run","start"]
+USER appuser
+
+CMD ["npm","start"]
