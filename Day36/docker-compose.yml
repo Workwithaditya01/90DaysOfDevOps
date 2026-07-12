@@ -1,0 +1,46 @@
+services:
+
+  app:
+    build: ./app
+    container_name: docker-node-app
+
+    ports:
+      - "3000:3000"
+
+    env_file:
+      - ./app/.env
+
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+    networks:
+      - docker-network
+
+  mongo:
+    image: mongo:8
+
+    container_name: mongodb
+
+    restart: unless-stopped
+
+    ports:
+      - "27017:27017"
+
+    volumes:
+      - mongo-data:/data/db
+
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+    networks:
+      - docker-network
+
+volumes:
+  mongo-data:
+
+networks:
+  docker-network:
