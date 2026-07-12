@@ -39,7 +39,7 @@ Stop:
 docker compose down
 ```
 
-## Environment Variables
+## Environment Variable
 
 ```
 PORT
