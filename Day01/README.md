@@ -2,7 +2,7 @@
 
 ## Current Level
 
-I am a fresher with a strong interest in DevOps, Cloud Computing, and AI. I have basic knowledge of Linux, Git, and GitHub and am currently building my foundation through hands-on learning and projects.
+I am a fresher Holds Bachelors of computer science degree with a strong interest in DevOps, Cloud Computing, and AI. I have basic knowledge of Linux, Git, and GitHub and am currently building my foundation through hands-on learning and projects.
 
 ## My Understanding of DevOps & Cloud Engineering
 
