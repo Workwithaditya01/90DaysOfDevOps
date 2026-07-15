@@ -1,0 +1,22 @@
+server:
+  name: web-server
+  ip: 192.168.1.10
+  port: 80
+
+database:
+  host: localhost
+  name: appdb
+
+  credentials:
+    user: admin
+    password: secret123
+
+startup_script_literal: |
+  echo "Starting Server..."
+  sudo systemctl start nginx
+  echo "Server Started"
+
+startup_script_folded: >
+  echo "Starting Server..."
+  sudo systemctl start nginx
+  echo "Server Started"
