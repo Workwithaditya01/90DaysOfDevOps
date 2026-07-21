@@ -1,0 +1,26 @@
+name: Self Hosted Runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  self-hosted-job:
+
+    runs-on: self-hosted
+
+    steps:
+      - name: Runner Information
+        run: |
+          echo "Hostname:"
+          hostname
+
+          echo ""
+          echo "Working Directory:"
+          pwd
+
+      - name: Create File
+        run: |
+          echo "Hello from Self Hosted Runner" > runner-test.txt
+
+      - name: Verify File
+        run: ls
