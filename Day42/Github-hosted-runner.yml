@@ -1,0 +1,57 @@
+# Goal: Run the Same Workflow on Three Different operating Systems Simultaneously
+# - GitHub Provides virtual machine (Called Github-hosted Runner) Whenever Your workflow Starts.
+
+name: GitHub Hosted Runners
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: Print Runner Info
+        run: |
+          echo "Operating System"
+          uname -a
+          echo ""
+          echo "Runner Hostname"
+          hostname
+          echo ""
+          echo "Username"
+          whoami
+          echo ""
+
+  windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Print Runner Info
+        shell: powershell
+        run: |
+          Write-Host "Operating System"
+          systeminfo | findstr /B /C:"OS Name"
+          Write-Host ""
+          Write-Host "Hostname:"
+          hostname
+          Write-Host ""
+          Write-Host "Current User:"
+          whoami
+          Write-Host ""
+
+  macos:
+    runs-on: macos-latest
+
+    steps:
+      - name: Print Runner Info
+        run: |
+          echo "Operating System"
+          sw_vers
+          echo ""
+          echo "Hostname"
+          hostname
+          echo ""
+          echo "Current User"
+          whoami
