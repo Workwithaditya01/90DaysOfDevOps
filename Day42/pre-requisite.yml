@@ -1,0 +1,26 @@
+# Goal: To Check Whether the pre-requisite are Installed
+
+name: Pre-Requisites
+
+on:
+  workflow_dispatch:
+
+jobs:
+  pre_requisities:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Installed Software
+        run: |
+          echo "Docker Version:"
+          docker --version
+          echo ""
+          echo "Python Version:"
+          python --version
+          echo ""
+          echo "Node Version"
+          node --version
+          echo ""
+          echo "Git Version"
+          git --version
+          echo ""
