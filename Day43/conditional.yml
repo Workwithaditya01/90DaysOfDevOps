@@ -1,0 +1,37 @@
+# Goal: Conditional Statements
+
+name: Conditional Demo
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: First Steps
+        run: echo "Workflow Started"
+
+      - name: Runs only on Main Branch
+        if: github.ref == 'refs/heads/main'
+        run: echo "This step works only on the main branch"
+
+      - name: Intentional Failure
+        continue-on-error: true
+        run: |
+          echo "This Step Will Fail"
+          exit 1
+
+      - name: Run if Previous step Fails
+        if: failure()
+        run: echo "The Previous Step Failed"
+
+  push-only-job:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Push Event
+        run: echo "This job runs only for push events."
