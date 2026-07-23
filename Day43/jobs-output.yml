@@ -1,0 +1,29 @@
+# Goal: Pass data from one job to another
+#
+name: Jobs Outputs Demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-date:
+    runs-on: ubuntu-latest
+
+    outputs:
+      today: ${{ steps.get-date.outputs.today }}
+
+    steps:
+      - name: Gets Today's Date
+        id: get-date
+        run: |
+          echo "today=$(date)" >> $GITHUB_OUTPUT
+
+  print-date:
+    runs-on: ubuntu-latest
+    needs: generate-date
+
+    steps:
+      - name: Print Date
+        run: |
+          echo "Today's Date"
+          echo "${{ needs.generate-date.outputs.today }}"
