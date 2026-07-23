@@ -1,0 +1,44 @@
+# Goal: This task combines everything you've learned so far.
+
+name: Smart Pipeline
+
+on:
+  push:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Lint
+        run: echo "Running Lint"
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: test
+        run: echo "Running test"
+
+  summary:
+    needs:
+      - lint
+      - test
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Branch information
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "This is a Main Branch Push"
+          else
+            echo "This is a Feature Branch Push"
+          fi
+
+      - name: Print Commit Message
+
+        run: |
+          echo "Commit Message:"
+          echo "${{ github.event.head_commit.message }}"
