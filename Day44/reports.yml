@@ -1,0 +1,22 @@
+# Goal: Create an Artifact for an workflow
+
+name: Creating_artifacts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  arti:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: create report
+        run: |
+          mkdir reports
+          echo "Build Successful" >> reports/report.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v6
+
+
