@@ -107,19 +107,19 @@ Run actual scripts automatically inside GitHub Actions.
 - Executed a Shell script.
 - Executed a Python script.
 - Verified that the workflow passed successfully.
-OBOBOB- Intentionally introduced an error to make the workflow fail.
-OBOBOB- Fixed the error and confirmed the workflow passed again.
+- Intentionally introduced an error to make the workflow fail.
+- Fixed the error and confirmed the workflow passed again.
 
 ### What I Learned
 
-OBOBOBRunning automated tests ensures that issues are detected early before code reaches production.
+Running automated tests ensures that issues are detected early before code reaches production.
 
-OBOBOB---
+---
 
-OBOBOB## ⚡ Task 6 – Dependency Caching
+## ⚡ Task 6 – Dependency Caching
 
 ### Objective
-OBOBOB
+
 Reduce workflow execution time by caching dependencies.
 
 ### What I Did
@@ -136,14 +136,13 @@ Reduce workflow execution time by caching dependencies.
 ---
 
 # 🎯 Key Takeaways
-OBOBOB
-OBOBOB- Learned how GitHub securely manages sensitive information using Secrets.
+- Learned how GitHub securely manages sensitive information using Secrets.
 - Understood how environment variables help keep workflows secure.
-OBOBOB- Learned how Artifacts can be used to share files between jobs.
+- Learned how Artifacts can be used to share files between jobs.
 - Automated Shell and Python tests using GitHub Actions.
-OBOBOBOBOBOB- Observed both successful and failed workflow executions.
+- Observed both successful and failed workflow executions.
 - Improved workflow performance by implementing dependency caching.
-OBOBOB
+
 ---
 
 # 🛠️ Technologies Used
