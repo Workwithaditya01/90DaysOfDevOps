@@ -1,0 +1,19 @@
+name: Task 2 - Environment Secrets
+
+on:
+  workflow_dispatch:
+
+jobs:
+  env-secret:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use secret as environment variable
+        env:
+          USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          TOKEN: ${{ secrets.DOCKER_TOKEN }}
+
+        run: |
+          echo "Username exists: ${#USERNAME}"
+          echo "Token exists: ${#TOKEN}"
+
