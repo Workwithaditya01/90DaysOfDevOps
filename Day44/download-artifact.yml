@@ -1,0 +1,36 @@
+# Goal: Generate and Download Artifacts
+
+name: Download-artifacts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Generating:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate File
+        run: |
+          mkdir output
+          echo "Artifact Transferred Successfully" >> output/message.txt
+
+      - name: Upload
+        uses: actions/upload-artifact@v6
+        with:
+          name: message
+          path: output/message.txt
+
+  Download:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v6
+        with:
+          name: message
+
+      - name: Display Artifact
+        run: |
+          cat message.txt
+
