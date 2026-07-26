@@ -244,7 +244,7 @@ Display the workflow status directly in the repository's `README.md`.
 ```markdown
 # GitHub Actions Practice
 
-[![Docker-Build-Tag](https://github.com/Workwithaditya01/Actions-practice/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/Workwithaditya01/Actions-practice/actions/workflows/docker-publish.yml)
+![Docker-Build-Tag](https://github.com/Workwithaditya01/Actions-practice/actions/workflows/docker-publish.yml/badge.svg)
 
 Learning GitHub Actions and Docker CI/CD.
 ```
