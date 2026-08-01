@@ -1,0 +1,31 @@
+name: Scheduled Tasks
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "30 2 * * 1"
+    - cron: "0 */6 * * *"
+
+jobs:
+  scheduled-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Trigger Schedule
+        run: |
+          echo "Triggered by:"
+          echo "${{ github.event.schedule }}"
+
+      - name: Website Health Check
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://github.com)
+
+          echo "Status Code: $STATUS"
+
+          if [ "$STATUS" -eq 200 ]; then
+            echo "Website is healthy."
+          else
+            echo "Website is unreachable."
+            exit 1
+          fi
