@@ -1,0 +1,22 @@
+name: Ignore Documentation Changes
+
+on:
+  push:
+    branches:
+      - main
+      - "release/*"
+
+    paths-ignore:
+      - "*.md"
+      - "docs/**"
+
+jobs:
+  ignore-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Print Message
+        run: echo "Workflow triggered because non-documentation files changed."
