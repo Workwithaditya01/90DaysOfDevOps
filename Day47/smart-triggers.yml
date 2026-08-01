@@ -1,0 +1,22 @@
+name: Smart Trigger
+
+on:
+  push:
+    branches:
+      - main
+      - "release/*"
+
+    paths:
+      - "src/**"
+      - "app/**"
+
+jobs:
+  smart-trigger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Print Message
+        run: echo "Application source code changed."
