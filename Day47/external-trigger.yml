@@ -1,0 +1,15 @@
+name: External Trigger
+
+on:
+  repository_dispatch:
+    types:
+      - deploy-request
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Client Payload
+        run: |
+          echo "Environment: ${{ github.event.client_payload.environment }}"
