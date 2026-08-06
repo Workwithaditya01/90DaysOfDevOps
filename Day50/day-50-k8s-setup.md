@@ -454,14 +454,4 @@ Day 50 introduced me to the core architecture of Kubernetes and how a cluster op
 
 ---
 
-## Folder Structure
 
-```
-2026/
-└── day-50/
-    ├── day-50-k8s-setup.md
-    ├── screenshots/
-    │   ├── kubectl-get-nodes.png
-    │   └── kube-system-pods.png
-    └── architecture-diagram.png (optional)
-```
