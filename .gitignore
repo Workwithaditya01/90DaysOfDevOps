@@ -81,3 +81,8 @@ docker-compose.override.yml
 # Local Secrets
 secrets/
 credentials.json
+
+# Tar files
+tar_files
+*.tar.gz
+*.tar

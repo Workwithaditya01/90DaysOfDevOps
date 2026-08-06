@@ -17,9 +17,10 @@ This project demonstrates Dockerizing a Node.js Express application with MongoDB
 - Multi-stage Docker build
 - Non-root user
 - Docker Compose
-- MongoDB healthcheck
+- App + MongoDB healthchecks
 - Persistent volume
 - Custom Docker network
+- Live container status dashboard (`/`) with a `/api/status` endpoint
 
 ## Run
 

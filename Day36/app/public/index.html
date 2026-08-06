@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>day36-node-app · container dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="dot-logo" aria-hidden="true"></span>
+      <span class="brand">day36-node-app</span>
+    </div>
+    <div class="topbar-right">
+      <span class="eyebrow">DAY 36 · 90DAYSOFDEVOPS</span>
+      <span class="clock" id="clock">--:--:--</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow hero-eyebrow">DOCKER · NODE.JS · EXPRESS · MONGODB</p>
+      <h1 class="terminal-headline">
+        <span class="prompt">$</span>
+        <span id="typedText"></span><span class="cursor">&#9608;</span>
+      </h1>
+      <p class="hero-sub">
+        A multi-stage, non-root Docker build for an Express API, wired to MongoDB
+        over a private bridge network — brought up with one command and health-checked
+        end to end.
+      </p>
+      <div class="stack-pills">
+        <span class="pill">Node 22 alpine</span>
+        <span class="pill">Express 5</span>
+        <span class="pill">MongoDB 8</span>
+        <span class="pill">Docker Compose</span>
+        <span class="pill">Non-root user</span>
+      </div>
+    </section>
+
+    <section class="panel-grid" aria-label="Service status">
+      <article class="card" id="card-app">
+        <div class="card-head">
+          <span class="status-dot" id="dot-app"></span>
+          <h2>app</h2>
+          <span class="card-tag">docker-node-app</span>
+        </div>
+        <dl class="card-rows">
+          <div><dt>image</dt><dd>day36-node-app:latest</dd></div>
+          <div><dt>port</dt><dd>3000 → 3000</dd></div>
+          <div><dt>state</dt><dd id="state-app">checking…</dd></div>
+          <div><dt>uptime</dt><dd id="uptime-app">—</dd></div>
+        </dl>
+      </article>
+
+      <article class="card" id="card-mongo">
+        <div class="card-head">
+          <span class="status-dot" id="dot-mongo"></span>
+          <h2>mongo</h2>
+          <span class="card-tag">mongodb:8</span>
+        </div>
+        <dl class="card-rows">
+          <div><dt>image</dt><dd>mongo:8</dd></div>
+          <div><dt>port</dt><dd>27017 → 27017</dd></div>
+          <div><dt>state</dt><dd id="state-mongo">checking…</dd></div>
+          <div><dt>volume</dt><dd>mongo-data:/data/db</dd></div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="arch" aria-label="Architecture">
+      <p class="eyebrow">CONTAINER TOPOLOGY</p>
+      <div class="arch-diagram">
+        <svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="app container connected to mongo container over docker-network, mongo backed by mongo-data volume">
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="#4FC3F7" />
+            </marker>
+          </defs>
+
+          <rect x="30" y="70" width="180" height="80" rx="10" fill="#12151C" stroke="#3DDC84" stroke-width="1.5"/>
+          <text x="120" y="102" text-anchor="middle" fill="#E8EAED" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">app</text>
+          <text x="120" y="122" text-anchor="middle" fill="#8B92A3" font-family="JetBrains Mono, monospace" font-size="11">:3000</text>
+
+          <line x1="210" y1="110" x2="330" y2="110" stroke="#4FC3F7" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <text x="270" y="98" text-anchor="middle" fill="#4FC3F7" font-family="JetBrains Mono, monospace" font-size="10">MONGO_URI</text>
+
+          <rect x="330" y="40" width="220" height="140" rx="10" fill="#12151C" stroke="#262B36" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <text x="440" y="58" text-anchor="middle" fill="#8B92A3" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1">docker-network</text>
+
+          <rect x="355" y="80" width="170" height="80" rx="10" fill="#12151C" stroke="#3DDC84" stroke-width="1.5"/>
+          <text x="440" y="112" text-anchor="middle" fill="#E8EAED" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">mongo</text>
+          <text x="440" y="132" text-anchor="middle" fill="#8B92A3" font-family="JetBrains Mono, monospace" font-size="11">:27017</text>
+
+          <line x1="440" y1="160" x2="440" y2="195" stroke="#F5A623" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <rect x="360" y="195" width="160" height="20" rx="4" fill="none" stroke="#F5A623" stroke-width="1.2"/>
+          <text x="440" y="209" text-anchor="middle" fill="#F5A623" font-family="JetBrains Mono, monospace" font-size="10">mongo-data volume</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="commands">
+      <p class="eyebrow">QUICK COMMANDS</p>
+      <div class="code-block">
+        <div class="code-line"><span class="prompt">$</span> docker compose up --build</div>
+        <div class="code-line"><span class="prompt">$</span> docker compose ps</div>
+        <div class="code-line"><span class="prompt">$</span> docker compose logs -f app</div>
+        <div class="code-line"><span class="prompt">$</span> docker compose down</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>day36-node-app</span>
+    <span class="dim">·</span>
+    <span class="dim">#90DaysOfDevOps</span>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
