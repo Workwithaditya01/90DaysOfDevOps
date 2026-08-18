@@ -1,20 +1,21 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ephemeral-pod
+  name: emptydir-pod
 spec:
   containers:
     - name: writer
-      image: busybox:1.36
+      image: busybox
       command:
         - sh
         - -c
         - |
-          echo "Message created at $(date)" > /data/message.txt
+          echo "Messge Written at $(data)" > /data/message.txt
           sleep 3600
       volumeMounts:
-        - name: temporary-storage
+        - name: temp-storage
           mountPath: /data
   volumes:
-    - name: temporary-storage
+    - name: temp-storage
       emptyDir: {}
+      
