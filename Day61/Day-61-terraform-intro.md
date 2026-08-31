@@ -66,7 +66,7 @@ aws sts get-caller-identity
 - `aws sts get-caller-identity` confirmed the CLI was authenticated correctly
   by returning my AWS Account ID, User ID, and ARN.
 
-**[Insert screenshot: terraform -version + aws sts get-caller-identity output]**
+![Version](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/7df8f43f7a28945a9ba28f097a70ee890ac5e9b2/Images/Day%2061/version%20Image.png)
 
 ---
 
@@ -95,7 +95,7 @@ builds.
 during `plan`/`apply`. It's machine-specific and regenerable, which is why it
 belongs in `.gitignore` rather than being committed.
 
-**[Insert screenshot: bucket visible in AWS S3 console]**
+![s3_bucket](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/7df8f43f7a28945a9ba28f097a70ee890ac5e9b2/Images/Day%2061/1.png)
 
 ---
 
@@ -122,7 +122,7 @@ bucket's config in `main.tf` hadn't changed, Terraform's plan showed no diff
 for it and only planned to create the new resource (the EC2 instance) that
 wasn't yet tracked in state.
 
-**[Insert screenshot: EC2 instance running with Name tag "TerraWeek-Day1" in AWS console]**
+![ec2](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/7df8f43f7a28945a9ba28f097a70ee890ac5e9b2/Images/Day%2061/3.png)
 
 ---
 
