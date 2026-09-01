@@ -119,7 +119,7 @@ Plan: 5 to add, 0 to change, 0 to destroy.
 
 **Verify:** After `terraform apply`, the AWS VPC console shows the VPC, its subnet, the attached internet gateway, and the route table with the subnet listed under "Explicit subnet associations."
 
-![VPC]()
+![VPC](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/303af58ca7ae3d1cc43341dffd8da37e11a2a5a9/Images/Day%2062/2.png)
 ---
 
 ## Task 3: Understand Implicit Dependencies
@@ -209,7 +209,7 @@ Using a `data "aws_ami"` lookup instead of a hardcoded AMI ID keeps the config p
 
 **Verify:** After apply, the EC2 console shows `TerraWeek-Server` running with a public IPv4 address. SSH should succeed on port 22 and a basic HTTP request should succeed on port 80 (once a web server is installed — Terraform doesn't do that for you unless you add `user_data`).
 
-![]()
+![](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/303af58ca7ae3d1cc43341dffd8da37e11a2a5a9/Images/Day%2062/5.png)
 
 ---
 
