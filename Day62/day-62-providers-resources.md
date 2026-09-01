@@ -334,3 +334,5 @@ aws_vpc.main
 - **Explicit dependency** — manually declared with `depends_on` when there's a real ordering requirement that isn't visible through any attribute reference. Used sparingly, and only when implicit references genuinely can't express the relationship.
 
 Terraform's core promise: **you declare the desired end state, and it figures out the safe order to get there** — both when building and when tearing down.
+
+# Thank you Visiting 
