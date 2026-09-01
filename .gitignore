@@ -90,4 +90,4 @@ tar_files
 *.tar
 
 # Images
-Images
+Images/   
