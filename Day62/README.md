@@ -1,7 +1,5 @@
 # Day 62 — Providers, Resources and Dependencies
 
-# Day 62 — Providers, Resources and Dependencies
-
 Part of the **#90DaysOfDevOps** / **#TerraWeek** challenge with TrainWithShubham.
 
 Builds a complete, connected AWS networking stack with Terraform — VPC, subnet, internet gateway, route table, security group, and an EC2 instance — and explores how Terraform figures out the correct order to create (and destroy) resources.
