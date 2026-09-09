@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket         = "terraweek-state-aditya-2026"
+    bucket         = "terraweek-state-aditya-devops-2026"
     key            = "dev/terraform.tfstate"
     region         = "ap-south-1"
     dynamodb_table = "terraweek-state-lock"
@@ -12,31 +12,11 @@ provider "aws" {
   region = var.region
 }
 
-data "aws_availability_zones" "available" {
-  state = "available"
+resource "aws_s3_bucket" "application" {
+  bucket = "terraweek-import-aditya-2026"
 }
 
-data "aws_ami" "amazon_linux" {
-  most_recent = true
-  owners      = ["amazon"]
-
-  filter {
-    name   = "name"
-    values = ["al2023-ami-*-x86_64"]
-  }
-
-  filter {
-    name   = "architecture"
-    values = ["x86_64"]
-  }
-
-  filter {
-    name   = "root-device-type"
-    values = ["ebs"]
-  }
-}
-
-resource "aws_vpc" "network" {
+resource "aws_vpc" "main" {
   cidr_block = var.vpc_cidr
 
   tags = merge(local.common_tags, {
@@ -45,26 +25,28 @@ resource "aws_vpc" "network" {
 }
 
 resource "aws_internet_gateway" "main" {
-  vpc_id = aws_vpc.network.id
+  vpc_id = aws_vpc.main.id
 
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-igw"
   })
 }
 
+
 resource "aws_subnet" "public" {
-  vpc_id                  = aws_vpc.network.id
+  vpc_id                  = aws_vpc.main.id
   cidr_block              = var.subnet_cidr
   availability_zone       = data.aws_availability_zones.available.names[0]
   map_public_ip_on_launch = true
 
-  tags = merge(local.common_tags, {
-    Name = "${local.name_prefix}-subnet"
-  })
+  tags = {
+    Name        = "${var.project_name}-${var.environment}-subnet"
+    Environment = var.environment
+  }
 }
 
 resource "aws_route_table" "public" {
-  vpc_id = aws_vpc.network.id
+  vpc_id = aws_vpc.main.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -84,7 +66,7 @@ resource "aws_route_table_association" "public" {
 resource "aws_security_group" "main" {
   name        = "${var.project_name}-${var.environment}-sg"
   description = "Security group for ${var.project_name}"
-  vpc_id      = aws_vpc.network.id
+  vpc_id      = aws_vpc.main.id
 
   dynamic "ingress" {
     for_each = var.allowed_ports
@@ -114,12 +96,11 @@ resource "aws_instance" "server" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
 
-  subnet_id              = aws_subnet.public.id
-  vpc_security_group_ids = [aws_security_group.main.id]
-
+  subnet_id                   = aws_subnet.public.id
+  vpc_security_group_ids      = [aws_security_group.main.id]
   associate_public_ip_address = true
 
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-server"
   })
-}   
+}

@@ -1,34 +1,29 @@
 output "vpc_id" {
-  description = "VPC ID"
-  value       = aws_vpc.network.id
+  description = "ID of the VPC"
+  value       = aws_vpc.main.id
 }
 
-
 output "subnet_id" {
-  description = "Public subnet ID"
+  description = "ID of the public subnet"
   value       = aws_subnet.public.id
 }
 
-
-output "security_group_id" {
-  description = "Security group ID"
-  value       = aws_security_group.main.id
-}
-
-
 output "instance_id" {
-  description = "EC2 instance ID"
+  description = "ID of the EC2 instance"
   value       = aws_instance.server.id
 }
 
-
 output "instance_public_ip" {
-  description = "EC2 public IP"
+  description = "Public IP address of the EC2 instance"
   value       = aws_instance.server.public_ip
 }
 
-
 output "instance_public_dns" {
-  description = "EC2 public DNS"
+  description = "Public DNS name of the EC2 instance"
   value       = aws_instance.server.public_dns
+}
 
+output "security_group_id" {
+  description = "ID of the security group"
+  value       = aws_security_group.main.id
+}
