@@ -4,21 +4,6 @@ Part of the **#90DaysOfDevOps** challenge. This day covers how Terraform tracks,
 
 ---
 
-## 📌 What This Covers
-
-| # | Task | Topic |
-|---|------|-------|
-| 1 | [Inspect Terraform State](./Day64-Terraform-State-Management.md#task-1--inspect-terraform-state) | `terraform show`, `state list`, `state show` |
-| 2 | [Remote State with S3 + DynamoDB](./Day64-Terraform-State-Management.md#task-2--remote-state-using-s3-and-dynamodb) | S3 backend, versioning, state migration |
-| 3 | [State Locking](./Day64-Terraform-State-Management.md#task-3--test-terraform-state-locking) | Concurrent apply testing, `force-unlock` |
-| 4 | [Importing Existing Resources](./Day64-Terraform-State-Management.md#task-4--import-an-existing-aws-resource) | `terraform import` |
-| 5 | [State Surgery](./Day64-Terraform-State-Management.md#task-5--terraform-state-surgery) | `state mv`, `state rm`, re-import |
-| 6 | [Configuration Drift](./Day64-Terraform-State-Management.md#task-6--detect-and-fix-configuration-drift) | Detecting & reconciling drift |
-
-📄 Full write-up: **[Day64-Terraform-State-Management.md](./Day64-Terraform-State-Management.md)**
-
----
-
 ## 🧠 Key Concepts
 
 - **Terraform State** is Terraform's "inventory book" — it maps configuration to real infrastructure.
