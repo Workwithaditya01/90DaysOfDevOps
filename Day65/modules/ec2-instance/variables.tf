@@ -10,7 +10,7 @@ variable "instance_type" {
 }
 
 variable "subnet_id" {
-  description = "Subnet ID where the EC2 instance will be deployed"
+  description = "Subnet where the EC2 instance will be launched"
   type        = string
 }
 
