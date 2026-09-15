@@ -13,7 +13,7 @@ This project uses Infrastructure as Code (IaC) to:
 - Deploy an Nginx application to the cluster
 - Expose it to the internet through a Kubernetes `LoadBalancer` service
 
-Full write-up, troubleshooting notes, and lessons learned are in [`Day-66-EKS-Terraform.md`](./Day-66-EKS-Terraform.md).
+Full write-up, troubleshooting notes, and lessons learned are in [`Day-66-EKS-Terraform.md`](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/a937c516f6aa3a1f7276a47daa6bc32873870447/Day66/day-66-eks-terraform.md).
 
 ---
 
@@ -117,7 +117,7 @@ kubectl get pods -A -o wide         # confirm scheduling issue
 
 ## 📚 Related
 
-- [Day 66 full write-up](./Day-66-EKS-Terraform.md)
+- [Day 66 full write-up](https://github.com/Workwithaditya01/90DaysOfDevOps/blob/a937c516f6aa3a1f7276a47daa6bc32873870447/Day66/day-66-eks-terraform.md)
 
 ---
 
