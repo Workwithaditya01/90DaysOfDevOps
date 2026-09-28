@@ -1,0 +1,52 @@
+---
+- name: Practice essential Ansible modules
+  hosts: web
+  become: true
+
+  tasks:
+
+    - name: Install curl
+      apt:
+        name: curl
+        state: present
+        update_cache: true
+
+    - name: Ensure nginx is running
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Create practice file
+      copy:
+        content: "Ansible module practice\n"
+        dest: /tmp/ansible-practice.txt
+
+    - name: Create practice directory
+      file:
+        path: /tmp/ansible-demo
+        state: directory
+        mode: '0755'
+
+    - name: Check system uptime
+      command: uptime
+      register: uptime_result
+
+    - name: Check disk usage
+      shell: "df -h | head -5"
+      register: disk_result
+
+    - name: Add Ansible managed setting
+      lineinfile:
+        path: /tmp/ansible-practice.txt
+        line: "environment=production"
+        state: present
+
+    - name: Display uptime
+      debug:
+        var: uptime_result.stdout
+
+    - name: Display disk usage
+      debug:
+        var: disk_result.stdout
+
