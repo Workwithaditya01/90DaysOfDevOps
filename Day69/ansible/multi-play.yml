@@ -1,0 +1,49 @@
+---
+- name: Configure web servers
+  hosts: web
+  become: true
+
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: true
+
+    - name: Ensure Nginx is running
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+
+- name: Configure application servers
+  hosts: app
+  become: true
+
+  tasks:
+    - name: Install application packages
+      apt:
+        name:
+          - git
+          - curl
+        state: present
+        update_cache: true
+
+
+- name: Configure database servers
+  hosts: db
+  become: true
+
+  tasks:
+    - name: Install PostgreSQL
+      apt:
+        name: postgresql
+        state: present
+        update_cache: true
+
+    - name: Ensure PostgreSQL is running
+      service:
+        name: postgresql
+        state: started
+        enabled: true
