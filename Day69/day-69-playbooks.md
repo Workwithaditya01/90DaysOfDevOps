@@ -716,20 +716,27 @@ During Day 69, I learned how to:
 ```text
 Day69/
 └── ansible/
-    ├── inventory.ini
-    ├── install-nginx.yml
-    ├── essential-modules.yml
-    ├── nginx-config.yml
-    ├── multi-play.yml
-    ├── day-69-playbooks.md
-    ├── files/
-    │   ├── app.conf
-    │   └── nginx.conf
-    └── screenshots/
-        └── day69/
-            ├── 00-inventory-ping.png
-            ├── 01-install-nginx-first-run.png
-            └── ...
+│     ├── inventory.ini
+│     ├── install-nginx.yml
+│     ├── essential-modules.yml
+│     ├── nginx-config.yml
+│     ├── multi-play.yml
+│     └── files/
+│         ├── app.conf
+│         └── nginx.conf
+│
+├── terraform/
+│      ├── data.tf
+│      ├── ec2.tf
+│      ├── outputs.tf
+│      ├── providers.tf
+│      ├── security-group.tf
+│      └── variables.tf
+│
+└── day-69-playbooks.md
+└── images
+└── README.md
+
 ```
 
 ---
