@@ -1,0 +1,37 @@
+
+---
+- name: Configure web servers using the custom role
+  hosts: web
+  become: true
+  gather_facts: true
+
+  roles:
+    - role: webserver
+      vars:
+        app_name: terraweek
+        http_port: 80
+        max_connections: 512
+
+- name: Configure app servers with the Docker Galaxy role
+  hosts: app
+  become: true
+  gather_facts: true
+
+  roles:
+    - geerlingguy.docker
+
+- name: Configure database servers with Vault secrets
+  hosts: db
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Deploy database configuration securely
+      ansible.builtin.template:
+        src: templates/db-config.j2
+        dest: /etc/db-config.env
+        owner: root
+        group: root
+        mode: '0600'
+      no_log: true
+

@@ -1,0 +1,12 @@
+
+---
+- name: Verify encrypted database variables
+  hosts: db
+  gather_facts: true
+
+  tasks:
+    - name: Confirm database password is configured
+      ansible.builtin.debug:
+        msg: "Database password is configured: {{ vault_db_password | length > 0 }}"
+      no_log: true
+

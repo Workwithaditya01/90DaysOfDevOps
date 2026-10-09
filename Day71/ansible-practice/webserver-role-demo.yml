@@ -1,0 +1,14 @@
+
+---
+- name: Configure web servers using the custom role
+  hosts: web
+  become: true
+  gather_facts: true
+
+  roles:
+    - role: webserver
+      vars:
+        app_name: terraweek
+        http_port: 80
+        max_connections: 512
+

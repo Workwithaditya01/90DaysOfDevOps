@@ -1,0 +1,8 @@
+#SPDX-License-Identifier: MIT-0
+---
+
+
+http_port: 80
+app_name: myapp
+max_connections: 512
+
