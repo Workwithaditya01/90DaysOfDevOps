@@ -1,0 +1,114 @@
+---
+- name: Install prerequisite packages
+  ansible.builtin.apt:
+    name:
+      - ca-certificates
+      - curl
+      - gnupg
+      - apt-transport-https
+      - acl
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+  tags: docker
+
+- name: Create apt keyrings directory
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: "0755"
+  tags: docker
+
+- name: Download Docker GPG key
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /etc/apt/keyrings/docker.asc
+    mode: "0644"
+  tags: docker
+
+- name: Add Docker apt repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    filename: docker
+    state: present
+  tags: docker
+
+- name: Install Docker CE, Compose plugin and Python Docker SDK
+  ansible.builtin.apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+      - python3-docker
+    state: present
+  tags: docker
+
+- name: Configure Docker log rotation
+  ansible.builtin.copy:
+    dest: /etc/docker/daemon.json
+    content: |
+      {
+        "log-driver": "json-file",
+        "log-opts": { "max-size": "10m", "max-file": "3" }
+      }
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart Docker
+  tags: docker
+
+- name: Start and enable Docker service
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: true
+  tags: docker
+
+- name: Apply pending Docker restart now
+  ansible.builtin.meta: flush_handlers
+  tags: docker
+
+- name: Add deploy user to docker group
+  ansible.builtin.user:
+    name: deploy
+    groups: docker
+    append: true
+  tags: docker
+
+- name: Log in to Docker Hub
+  community.docker.docker_login:
+    username: "{{ vault_docker_username }}"
+    password: "{{ vault_docker_password }}"
+  become_user: deploy
+  no_log: true
+  when: vault_docker_username is defined
+  tags: docker
+
+- name: Pull application image
+  community.docker.docker_image:
+    name: "{{ docker_app_image }}"
+    tag: "{{ docker_app_tag }}"
+    source: pull
+  tags: docker
+
+- name: Run application container
+  community.docker.docker_container:
+    name: "{{ docker_app_name }}"
+    image: "{{ docker_app_image }}:{{ docker_app_tag }}"
+    state: started
+    restart_policy: always
+    ports:
+      - "{{ docker_app_port }}:{{ docker_container_port }}"
+  tags: docker
+
+- name: Wait for container to be healthy
+  ansible.builtin.uri:
+    url: "http://localhost:{{ docker_app_port }}"
+    status_code: 200
+  retries: 5
+  delay: 3
+  register: health_check
+  until: health_check.status == 200
+  tags: docker

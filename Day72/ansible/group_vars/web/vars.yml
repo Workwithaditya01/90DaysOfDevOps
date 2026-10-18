@@ -1,0 +1,8 @@
+---
+# Docker side (overrides the role default, same value)
+docker_app_port: 8080
+
+# Nginx side: always follows the Docker port
+nginx_upstream_port: "{{ docker_app_port }}"
+nginx_http_port: 80
+nginx_server_name: "_"

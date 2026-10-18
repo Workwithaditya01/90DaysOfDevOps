@@ -1,0 +1,27 @@
+# Main Nginx config -- Managed by Ansible. Do not edit by hand.
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+error_log /var/log/nginx/error.log;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+    worker_connections {{ nginx_worker_connections }};
+}
+
+http {
+    sendfile on;
+    tcp_nopush on;
+    types_hash_max_size 2048;
+    server_tokens off;
+
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    access_log /var/log/nginx/access.log;
+
+    gzip on;
+
+    # Every file in conf.d is loaded here, including our app-proxy.conf
+    include /etc/nginx/conf.d/*.conf;
+}
