@@ -67,7 +67,7 @@ services:
       - GF_SMTP_ENABLED=true
       - GF_SMTP_HOST=smtp.gmail.com:587
       - GF_SMTP_USER=awsforaditya@gmail.com
-      - GF_SMTP_PASSWORD=zxlfvtojkxhtkjif
+      - GF_SMTP_PASSWORD=zabefaejbcne
       - GF_SMTP_FROM_ADDRESS=awsforaditya@gmail.com
       - GF_SMTP_FROM_NAME=Grafana Alerts
     restart: unless-stopped
